@@ -4,17 +4,17 @@ class LoginController extends \Phalcon\Mvc\Controller
 {
 
 	public function onconstruct()
- //    {
+     {
  //        echo 1;
- //    }
+    }
 	public function initialize()
     {
-        
+        $this->view->setTemplateAfter('default');
     }
 
     public function indexAction()
     {
-        echo "<h1>Loginindex</h1>";
+        
     }
 
      public function ProcessAction($username=false,$age=12)
@@ -31,6 +31,7 @@ class LoginController extends \Phalcon\Mvc\Controller
 
         $this->view->setVar('username',$username);
         $this->view->setVar('age',$age);
+        $this->view->disableLevel(\Phalcon\Mvc\View::LEVEL_AFTER_TEMPLATE);
     }
 
     //  public function TestAction()
