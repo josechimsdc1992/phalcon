@@ -6,6 +6,14 @@
 <?=$single->nombre?>
 <?=$single->email?>
 
+<?php foreach ($single->projecto as $p):?>
+	<br>
+<?=$p->id?>
+<?=$p->nombre?>
+
+<?php endforeach;?>
+
+
 <?php endif;?>
 
 <hr>
