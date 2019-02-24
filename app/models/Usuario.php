@@ -4,6 +4,27 @@ use Phalcon\Mvc\Model\Behavior\SoftDelete;
 
 class Usuario extends \Phalcon\Mvc\Model
 {
+   /**
+     * @Primary
+     * @Identity
+     * @Column(type='integer', nullable=false)
+     */
+    public $id;
+
+    /**
+     * @Column(type='string', length=50, nullable=false)
+     */
+    public $nombre;
+
+    /**
+     * @Column(type='string', length=355, nullable=false)
+     */
+    public $email;
+
+    /**
+     * @Column(type='boolean', nullable=true)
+     */
+    public $deleted;
 
   public function getSource()
   {

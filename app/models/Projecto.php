@@ -6,7 +6,7 @@ class Projecto extends \Phalcon\Mvc\Model
   public function initialize()
   {
         $this->setSource('projecto');
-        $this->hasOne(
+        $this->belongsTo(
             'usuarioid',
             'Usuario',
             'id'

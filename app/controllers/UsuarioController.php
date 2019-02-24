@@ -3,7 +3,6 @@
 class UsuarioController extends \Phalcon\Mvc\Controller
 {
 
-    
     public function indexAction()
     {
         $this->view->setVars(
@@ -31,8 +30,8 @@ class UsuarioController extends \Phalcon\Mvc\Controller
         // var_dump($projecto->usuario->nombre);
         $usuario=Usuario::findFirstById(5);
         $projecto=new Projecto();
-        $projecto->nombre='armado de lap';
-        //$projecto->usuario=$usuario; not work i dont know the reason;
+        $projecto->nombre='armado de cell';
+        // $projecto->usuario=$usuario; //not work i dont know the reason;
         $projecto->created=date("Y-m-d H:i:s");
         
         $projecto->usuarioid=$usuario->id;
@@ -52,6 +51,7 @@ class UsuarioController extends \Phalcon\Mvc\Controller
         
         
     }
+
      public function projectosAction()
     {
         $projecto=Projecto::find();
@@ -142,6 +142,35 @@ class UsuarioController extends \Phalcon\Mvc\Controller
         }
 
 
+    }
+
+     public function setsessionAction()
+    {
+        $this->session->set('name','josechim');
+
+        echo 'set session';
+
+    }
+
+     public function getsessionAction()
+    {
+        
+        echo $this->session->get('name');
+
+        echo 'get session';
+
+    }
+
+     public function removeAction()
+    {
+        // Remove a session variable
+        $this->session->remove('name');
+    }
+
+    public function destroyAction()
+    {
+        // Destroy the whole session
+        $this->session->destroy();
     }
 
     

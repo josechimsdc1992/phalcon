@@ -1,6 +1,8 @@
 <?php
 try {
 
+    
+
 	//autoloader
     $loader = new \Phalcon\Loader();
     $loader->registerDirs(array(
@@ -29,6 +31,35 @@ try {
         $view->setViewsDir('../app/views/');
         return $view;
     });
+
+    //Start the session the first time when some component request the session service
+    $di->setShared(
+        'session',
+        function () {
+            $session = new Phalcon\Session\Adapter\Files();
+
+            $session->start();
+
+            return $session;
+        }
+    );
+
+    // //metadata models
+    // $di['modelsMetadata'] = function () {
+    //     // Create a metadata manager with APC
+    //     $metadata = new Phalcon\Mvc\Model\MetaData\Apc(
+    //         [
+    //             'lifetime' => 86400,
+    //             'prefix'   => 'metaData',
+    //         ]
+    //     );
+
+    //     // $metadata->setStrategy(
+    //     //     new Phalcon\Mvc\Model\MetaData\Strategy\Annotations()
+    //     // );
+
+    //     return $metadata;
+    // };
 
     //deployment app
     $application = new \Phalcon\Mvc\Application($di);
