@@ -1,0 +1,19 @@
+<h1>Lista de Usuarios</h1>
+
+<?php if(property_exists($single, 'id')):?>
+
+<?=$single->id?>
+<?=$single->nombre?>
+<?=$single->email?>
+
+<?php endif;?>
+
+<hr>
+
+<?php foreach ($all as $user):?>
+<?=$user->id?>
+<?=$user->nombre?>
+<?=$user->email?>
+<br>
+	
+<?php endforeach;?>
