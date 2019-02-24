@@ -7,7 +7,8 @@ try {
     $loader = new \Phalcon\Loader();
     $loader->registerDirs(array(
         '../app/controllers/',
-        '../app/models/'
+        '../app/models/',
+        '../app/config/'
     ))->register();
 
     //dependency injection
@@ -30,7 +31,22 @@ try {
     $di->set('view', function(){
         $view = new \Phalcon\Mvc\View();
         $view->setViewsDir('../app/views/');
+        // $view->registerEngines(
+        //     [
+        //         '.volt' => '\Phalcon\Mvc\View\Engine\volt',
+        //     ]
+        // );
         return $view;
+    });
+
+   $di->set('router', function() {
+
+        $router = new \Phalcon\Mvc\Router(true);
+        $router->mount(new Routes());
+        $router->handle();
+
+        return $router;
+
     });
 
     //Start the session the first time when some component request the session service
@@ -68,6 +84,10 @@ try {
     echo $application->handle()->getContent();
 
 
-} catch(\Phalcon\Exception $e) {
+} 
+catch(Exception $e) {
+     echo "Exception: ", $e->getMessage();
+}
+catch(\Phalcon\Exception $e) {
      echo "PhalconException: ", $e->getMessage();
 }
