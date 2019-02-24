@@ -24,6 +24,27 @@ class UsuarioController extends \Phalcon\Mvc\Controller
 
     }
 
+    public function loginAction()
+    {
+        // method login
+        // Getting a request instance
+        $request = new Request();
+
+        // Check whether the request was made with method POST
+        if ($request->isPost()) {
+            // Check whether the request was made with Ajax
+            if ($request->isAjax()) {
+                echo 'Request was made using POST and AJAX';
+            }
+        }
+
+        //print_r($this->request->get());
+        echo  $this->request->getQuery('demo');
+        $post=$this->request->getPost();
+        $this->filter->sanitize('','email');
+        print_r($post);
+    }
+
     public function relationAction()
     {
         // $projecto=Projecto::findFirstById(1);

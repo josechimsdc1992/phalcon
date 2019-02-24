@@ -1,3 +1,28 @@
+
+<?php use Phalcon\Tag; ?>
+
+<h2>Registrate haciendo uso de este formulario</h2>
+
+<?php echo Tag::form("usuario/login"); ?>
+
+ <label>nombre</label>
+<input type="text" name="nombre">
+<br>
+<label>email</label>
+<input type="text" name="email">
+<br>
+<label>contraseña</label>
+<input type="password" name="password">
+<br>
+
+ <p>
+    <?php echo Tag::submitButton("Registrarme") ?>
+ </p>
+
+</form>
+
+
+
 <h1>Lista de Usuarios</h1>
 
 <?php if(property_exists($single, 'id')):?>

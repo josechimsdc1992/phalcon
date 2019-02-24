@@ -26,6 +26,7 @@ try {
         return $db;
     });
 
+    //vistas
     $di->set('view', function(){
         $view = new \Phalcon\Mvc\View();
         $view->setViewsDir('../app/views/');
