@@ -1,6 +1,6 @@
 <?php
 
-class TestController extends \Phalcon\Mvc\Controller
+class TestController extends BaseController
 {
     public function indexAction()
     {

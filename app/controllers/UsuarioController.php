@@ -1,13 +1,13 @@
 <?php
 
-class UsuarioController extends \Phalcon\Mvc\Controller
+class UsuarioController extends BaseController
 {
 
     public function indexAction()
     {
         $this->view->setVars(
             [
-                'single'=>Usuario::findFirstById(6),
+                'single'=>Usuario::findFirstById(1),
                 'all'=>Usuario::find(
                     [
                         'deleted IS NULL'
@@ -49,7 +49,7 @@ class UsuarioController extends \Phalcon\Mvc\Controller
     {
         // $projecto=Projecto::findFirstById(1);
         // var_dump($projecto->usuario->nombre);
-        $usuario=Usuario::findFirstById(5);
+        $usuario=Usuario::findFirstById(1);
         $projecto=new Projecto();
         $projecto->nombre='armado de cell';
         // $projecto->usuario=$usuario; //not work i dont know the reason;

@@ -27,17 +27,43 @@ try {
         return $db;
     });
 
-    //vistas
-    $di->set('view', function(){
-        $view = new \Phalcon\Mvc\View();
-        $view->setViewsDir('../app/views/');
-        // $view->registerEngines(
-        //     [
-        //         '.volt' => '\Phalcon\Mvc\View\Engine\volt',
-        //     ]
-        // );
-        return $view;
-    });
+    // //vistas and volt engine
+    $di->set(
+    'voltService',
+    function ($view, $di) {
+        $volt = new Phalcon\Mvc\View\Engine\Volt($view, $di);
+
+        $volt->setOptions(
+            [
+                'compiledPath'      => '../app/cache/volt',
+                'compiledExtension' => '.compiled',
+            ]
+        );
+
+        return $volt;
+    }
+    );
+
+    // Register Volt as template engine
+    $di->set(
+        'view',
+        function () {
+            $view = new Phalcon\Mvc\View();
+
+            $view->setViewsDir('../app/views/');
+
+            $view->registerEngines(
+                [
+                    '.volt' => 'voltService',
+                ]
+            );
+
+            return $view;
+        }
+    );
+
+    
+
 
    $di->set('router', function() {
 

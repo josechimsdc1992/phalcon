@@ -23,30 +23,26 @@
 
 
 
-<h1>Lista de Usuarios</h1>
+<h1>Primer Usuario</h1>
 
-<?php if(property_exists($single, 'id')):?>
-
-<?=$single->id?>
-<?=$single->nombre?>
-<?=$single->email?>
-
-<?php foreach ($single->projecto as $p):?>
-	<br>
-<?=$p->id?>
-<?=$p->nombre?>
-
-<?php endforeach;?>
-
-
-<?php endif;?>
-
+{% if single %}
+{{ single.id }}
+{{ single.nombre }}
+{{ single.email }}
 <hr>
+{% set first=single.projecto.getFirst().toArray() %}
+{{ first['nombre'] }}
+<hr>
+{% else %}
+{{ nothing }}
+{% endif %}
 
-<?php foreach ($all as $user):?>
-<?=$user->id?>
-<?=$user->nombre?>
-<?=$user->email?>
-<br>
-	
-<?php endforeach;?>
+
+<h1>Todos los usuarios</h1>
+<hr>
+{% for key, user in all %}
+{{ user.id }}
+{{ user.nombre }}
+{{ user.email }}
+{% endfor %}
+
