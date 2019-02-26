@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Main Layout</title>
         <?php $this->assets->outputCss('style') ?>
-        
+        {% block head %}
+      	{% endblock %} 
     </head>
     <body>
 
@@ -50,7 +51,8 @@
 
     <h1>Inicio</h1>
     <p class="lead">
-      <?php echo $this->getContent(); ?>  
+      {% block content %}
+      {% endblock %} 
     </p>
 
       

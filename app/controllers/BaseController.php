@@ -5,14 +5,27 @@ class BaseController extends \Phalcon\Mvc\Controller
 
     public function initialize()
     {
-        $this->assets->collection('head')
-                    ->addCss('css/style.css')
-                    ->addJs('third-party/js/jquery-3.3.1.min.js')
-                    ->addJs('https://code.jquery.com/jquery-3.3.1.min.js',true);
+         // \Phalcon\Taq::prependTitle('projecto');
+         $this->assets->collection('style')
+                    ->addCss('third-party/css/bootstrap.min.css',false,false)
+                    ->addCss('css/style.css');
+                    // ->setTargetPath('css/production.css')
+                    // ->setTargetUri('css/production.css')
+                    // ->join(true)
+                    // ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
+                    
 
-        $this->assets->collection('footer')
-                    ->addJs('third-party/js/fake1.js')
-                    ->addJs('third-party/js/fake2.js');
+        $this->assets->collection('js')
+                    ->addJs('third-party/js/jquery-3.3.1.min.js',false,false)
+                    ->addJs('third-party/js/popper.min.js',false,false)
+                    ->addJs('third-party/js/bootstrap.min.js',false,false);
+                    // ->setTargetPath('js/production.js')
+                    // ->setTargetUri('js/production.js')
+                    // ->join(true)
+                    // ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
+                    
+
+       
     }
 
 }

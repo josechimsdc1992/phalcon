@@ -1,3 +1,6 @@
+{% extends "layouts/base.volt"%}
+
+{% block content %}
 
 <?php use Phalcon\Tag; ?>
 
@@ -45,4 +48,7 @@
 {{ user.nombre }}
 {{ user.email }}
 {% endfor %}
+
+{% endblock content %}
+
 
