@@ -29,20 +29,23 @@ class SigninController extends BaseController
         	
         	$this->session->set('id',$user->id);
         	$this->session->set('role',$user->role);
-        	exit('acceso concedido');
+        	return $this->response->redirect('dashboard/');
         }
         
 
      	$this->flash->error('Usuario o Contraseña incorrectas');
-     //    $this->dispatcher->forward(array(
-     //    "controller" => "signin",
-     //    "action" => "index"
-    	// ));
-
     	return $this->response->redirect('signin/');    
     	
 
 
+        
+
+    }
+     public function LogoutAction()
+    {
+       
+        $this->session->destroy();
+        return $this->response->redirect('signin/');    
         
 
     }

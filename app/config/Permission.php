@@ -57,7 +57,7 @@ class Permission extends \Phalcon\Mvc\User\Plugin
     public function beforeExecuteRoute(Event $event, Dispatcher $dispatcher)
     {
         // Debug:
-        // $this->session->destroy();
+        //$this->session->destroy();
 
         // Get the current role
         $role = $this->session->get('role');

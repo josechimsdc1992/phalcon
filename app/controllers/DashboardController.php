@@ -5,7 +5,7 @@ class dashboardController extends BaseController
 
     public function indexAction()
     {
-        	echo 'ADMIN';		
+        	$this->view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_LAYOUT);		
     }
 
    
