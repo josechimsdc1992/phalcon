@@ -23,7 +23,7 @@ class BaseController extends \Phalcon\Mvc\Controller
                     ->addJs('/bootstrap-template/vendor/bootstrap/js/bootstrap.bundle.min.js',false,false)
                     ->addJs('/bootstrap-template/vendor/jquery-easing/jquery.easing.min.js',false,false)
                     ->addJs('/bootstrap-template/js/jqBootstrapValidation.js',false,false)
-                    ->addJs('/bootstrap-template/js/contact_me.js',false,false)
+                    // ->addJs('/bootstrap-template/js/contact_me.js',false,false)
                     ->addJs('/bootstrap-template/js/agency.min.js',false,false);
                     
                     // ->setTargetPath('js/production.js')

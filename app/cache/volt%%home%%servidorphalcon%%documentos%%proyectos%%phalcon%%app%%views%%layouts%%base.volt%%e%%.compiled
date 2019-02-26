@@ -1,4 +1,4 @@
-a:3:{i:0;s:2247:"<!DOCTYPE html>
+a:3:{i:0;s:2330:"<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,10 +33,10 @@ a:3:{i:0;s:2247:"<!DOCTYPE html>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#services">Home</a>
+            <a class="nav-link" href="<?= $this->url->get('/') ?>">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="singin">Login</a>
+            <a class="nav-link" href="<?= $this->url->get('signin/') ?>">Login</a>
           </li>
           
         </ul>
@@ -61,9 +61,10 @@ a:3:{i:0;s:2247:"<!DOCTYPE html>
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
+        <?= $this->flash->output() ?>
         ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:18:"
         
-        ";s:4:"file";s:30:"../app/views/layouts/base.volt";s:4:"line";i:66;}}i:1;s:1292:"
+        ";s:4:"file";s:30:"../app/views/layouts/base.volt";s:4:"line";i:67;}}i:1;s:1292:"
         </div>
         
       </div>

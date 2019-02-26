@@ -12,17 +12,19 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <form id="contactForm" name="sentMessage" novalidate="novalidate">
+          <form id="contactForm" method="post" action="{{ url('signin/logear') }}">
+
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="password" type="password" placeholder="Your Password*" required="required" data-validation-required-message="Please enter your password.">
+                  <input class="form-control" name="password" id="password" type="password" placeholder="Your Password*" required="required" data-validation-required-message="Please enter your password.">
                   <p class="help-block text-danger"></p>
                 </div>
+                
               </div>
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">

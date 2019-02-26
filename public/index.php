@@ -26,6 +26,12 @@ try {
         return $db;
     });
 
+    $di->set('url', function(){
+        $url = new \Phalcon\Mvc\Url();
+        $url->setBaseUri('/');
+        return $url;
+    });
+
     // //vistas and volt engine
     $di->set(
     'voltService',
@@ -102,6 +108,16 @@ try {
 
     //     return $metadata;
     // };
+     $di->set('flash', function() {
+        // There is a Direct, and a Session
+        $flash = new \Phalcon\Flash\Session(array(
+            'error' => 'alert alert-danger',
+            'success' => 'alert alert-success',
+            'notice' => 'alert alert-info',
+            'warning' => 'alert alert-warning',
+        ));
+        return $flash;
+    });
 
    $di->set('dispatcher',
         function () {
@@ -141,8 +157,18 @@ try {
 
 } 
 catch(Exception $e) {
-     echo "Exception: ", $e->getMessage();
+     echo '<pre>';
+    echo get_class($e), ": ", $e->getMessage(), "\n";
+    echo " File=", $e->getFile(), "\n";
+    echo " Line=", $e->getLine(), "\n";
+    echo $e->getTraceAsString();
+    echo '</pre>';
 }
 catch(\Phalcon\Exception $e) {
-     echo "PhalconException: ", $e->getMessage();
+     echo '<pre>';
+    echo get_class($e), ": ", $e->getMessage(), "\n";
+    echo " File=", $e->getFile(), "\n";
+    echo " Line=", $e->getLine(), "\n";
+    echo $e->getTraceAsString();
+    echo '</pre>';
 }

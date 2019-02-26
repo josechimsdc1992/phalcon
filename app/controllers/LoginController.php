@@ -5,11 +5,11 @@ class LoginController extends BaseController
 
 	public function onconstruct()
      {
- //        echo 1;
+ 
     }
 	public function initialize()
     {
-        $this->view->setTemplateAfter('default');
+       
     }
 
     public function indexAction()

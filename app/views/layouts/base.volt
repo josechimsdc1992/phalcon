@@ -33,10 +33,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#services">Home</a>
+            <a class="nav-link" href="{{ url('/') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="signin">Login</a>
+            <a class="nav-link" href="{{ url('signin/') }}">Login</a>
           </li>
           
         </ul>
@@ -61,6 +61,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
+        {{ flash.output() }}
         {% block content %}
         
         {% endblock %}
