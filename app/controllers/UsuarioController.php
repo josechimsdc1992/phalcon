@@ -15,6 +15,7 @@ class UsuarioController extends BaseController
                 ),
             ]
         );
+        $this->view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_LAYOUT);
 
         // exit(json_encode(Usuario::find(
         //             [

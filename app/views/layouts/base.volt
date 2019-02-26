@@ -1,65 +1,131 @@
-<!-- app/views/index.phtml -->
-<html>
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Main Layout</title>
-        <?php $this->assets->outputCss('style') ?>
-        {% block head %}
-      	{% endblock %} 
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
 
-      
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{{ get_title() }}</title>
+  <?php $this->assets->outputCss('style') ?>
+  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signin">Login</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To Our Studio!</div>
+        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         
-         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      </div>
+    </div>
+  </header>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+  <!-- Clients -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+        {% block content %}
+        
+        {% endblock %}
         </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+        
+      </div>
+    </div>
+  </section>
 
-<main role="main" class="container">
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; Your Website 2019</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  <div class="starter-template">
+  
 
-    <h1>Inicio</h1>
-    <p class="lead">
-      {% block content %}
-      {% endblock %} 
-    </p>
+  <?php $this->assets->outputJs('js') ?>
+  
 
-      
-  </div>
+</body>
 
-</main><!-- /.container -->
-
-<?php $this->assets->outputJs('js') ?>
-    </body>
 </html>
+
+
+
+
+
+        
+   
+      
+ 
+
+

@@ -1,4 +1,4 @@
-{% extends "layouts/base.volt"%}
+{% extends "layouts/base.volt" %}
 
 {% block content %}
 
@@ -49,6 +49,6 @@
 {{ user.email }}
 {% endfor %}
 
-{% endblock content %}
+{% endblock %}
 
 

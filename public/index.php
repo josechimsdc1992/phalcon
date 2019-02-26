@@ -2,7 +2,6 @@
 try {
 
     
-
 	//autoloader
     $loader = new \Phalcon\Loader();
     $loader->registerDirs(array(
@@ -103,6 +102,36 @@ try {
 
     //     return $metadata;
     // };
+
+   $di->set('dispatcher',
+        function () {
+            // Create an event manager
+            $eventsManager = new Phalcon\Events\Manager();
+
+            // Attach a listener for type 'dispatch'
+            $permission=new Permission(); 
+            
+            // $eventsManager->attach(
+            //     'dispatch',
+            //     function (Phalcon\Events\Event $event, $dispatcher) {
+            //         // ...
+            //     }
+            // );
+
+             $eventsManager->attach(
+                'dispatch',
+                $permission
+            );
+
+            $dispatcher = new Phalcon\Mvc\Dispatcher();
+
+            // Bind the eventsManager to the view component
+            $dispatcher->setEventsManager($eventsManager);
+
+            return $dispatcher;
+        },
+        true
+    );
 
     //deployment app
     $application = new \Phalcon\Mvc\Application($di);

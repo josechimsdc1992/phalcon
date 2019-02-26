@@ -32,6 +32,7 @@ class LoginController extends BaseController
         $this->view->setVar('username',$username);
         $this->view->setVar('age',$age);
         $this->view->disableLevel(\Phalcon\Mvc\View::LEVEL_AFTER_TEMPLATE);
+        $this->view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_LAYOUT);
     }
 
     //  public function TestAction()
