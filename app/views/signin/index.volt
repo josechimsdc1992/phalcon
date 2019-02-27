@@ -30,6 +30,7 @@
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
                 <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Acceder</button>
+               <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getToken() }}">
               </div>
             </div>
           </form>

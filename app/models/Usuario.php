@@ -1,6 +1,9 @@
 <?php
 
 use Phalcon\Mvc\Model\Behavior\SoftDelete;
+use Phalcon\Security;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Uniqueness;
 
 class Usuario extends \Phalcon\Mvc\Model
 {
@@ -62,13 +65,36 @@ class Usuario extends \Phalcon\Mvc\Model
    
         $this->update=date("Y-m-d H:i:s");
   }
+
    public function beforeValidationOnCreate()
    {
-      if($this->email=='josechimsdc1992@gmail.com')
-      {
-        die('el correo ha sido baneado');
-      }
+      // if($this->email=='josechimsdc1992@gmail.com')
+      // {
+      //   die('el correo ha sido baneado');
+      // }
    }
-  
-  
+
+   public function afterValidationOnCreate()
+   {
+      $security=new Security();
+      $this->password=$security->hash($password);
+   }
+
+   //validation not work
+   // public function validation()
+   //  {
+   //      $validator = new Validation();
+
+   //      $validator->add(
+   //          'nombre',
+   //          new Uniqueness(
+   //              [
+   //                  'message' => 'The robot name must be unique',
+   //              ]
+   //          )
+   //      );
+
+   //      return $this->validate($validator);
+   //  }
+
 }

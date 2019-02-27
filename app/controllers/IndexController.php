@@ -5,7 +5,12 @@ class IndexController extends BaseController
 
     public function indexAction()
     {
-        	echo 'Welcome to main page.';		
+        echo 'Welcome to main page.';		
+    }
+
+    public function generateAction($password)
+    {
+         echo $this->security->hash($password);
     }
 
     public function startsessionAction()

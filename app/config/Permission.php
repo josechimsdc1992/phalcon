@@ -64,6 +64,7 @@ class Permission extends \Phalcon\Mvc\User\Plugin
         if (!$role) {
             $role = self::GUEST;
         }
+        
 
         // Get the current Controller/Action from the Dispatcher
         $controller = $dispatcher->getControllerName();
