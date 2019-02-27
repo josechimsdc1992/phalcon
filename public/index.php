@@ -1,7 +1,8 @@
 <?php
 try {
 
-    
+    require '../app/config/Config.php';
+
 	//autoloader
     $loader = new \Phalcon\Loader();
     $loader->registerDirs(array(
@@ -10,19 +11,32 @@ try {
         '../app/config/'
     ))->register();
 
+    $loader->registerClasses([
+        'Component\Helper'=>'..app/components/Helper.php',
+        'Component\User'=>'..app/components/User.php'
+    ]);
+
     //dependency injection
     $di = new \Phalcon\DI\FactoryDefault();
 
-    //config database
-    $di->set('db',function()
+    //config
+    $di->setShared('config',function() use ($config)
     {
-        $db=new Phalcon\Db\Adapter\Pdo\Postgresql([
-            "host" => "localhost",
-            "dbname" => "phalcontraining",
-            "username" => "postgres",
-            "password" => "1234",
-            "port"=>"5432"
-        ]);
+        return $config;
+    });
+
+    //config database
+    $di->set('db',function() use ($di)
+    {
+        $dbConfig=(array)$di->get('config')->get('database');
+        $db=new Phalcon\Db\Adapter\Pdo\Postgresql($dbConfig);
+        //  $db=new Phalcon\Db\Adapter\Pdo\Postgresql([
+        //     "host" => "localhost",
+        //     "dbname" => "phalcontraining",
+        //     "username" => "postgres",
+        //     "password" => "1234",
+        //     "port"=>"5432"
+        // ]);
         return $db;
     });
 
@@ -91,6 +105,14 @@ try {
             return $session;
         }
     );
+
+    $di->setShared('component',function()
+        {
+            $obj=new stdClass();
+            $obj->user=new \Component\User;
+            $obj->helper=new \Component\Helper;
+            return $obj;
+        });
 
     // //metadata models
     // $di['modelsMetadata'] = function () {

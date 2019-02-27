@@ -23,7 +23,10 @@ class SigninController extends BaseController
             $this->flash->error('Invalid CSRF Token');
             return $this->response->redirect('signin/'); 
         }
+        //$result=$this->component->helper->csrf('signin/');
+        //if($result){return false;}
         $this->view->disable();
+        
 
         $email=$this->request->getPost('email');
         $password=$this->request->getPost('password');
@@ -111,6 +114,7 @@ class SigninController extends BaseController
          else {
 
             $this->__CreateUser($usuario);
+            //$this->component->user->CreateUser($usuario);
         }
 
         
