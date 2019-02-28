@@ -2,6 +2,7 @@
 try {
 
     require '../app/config/Config.php';
+    require '../vendor/autoload.php';
 
 	//autoloader
     $loader = new \Phalcon\Loader();

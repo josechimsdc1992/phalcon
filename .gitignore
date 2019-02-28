@@ -1,3 +1,5 @@
 *.volt.compiled
 *.compiled
 app/cache
+composer.lock
+vendor

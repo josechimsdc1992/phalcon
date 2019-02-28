@@ -1,11 +1,15 @@
 <?php
+use Carbon\Carbon;
 
 class IndexController extends BaseController
 {
 
     public function indexAction()
     {
-        echo 'Welcome to main page.';		
+        
+
+        //echo 'Welcome to main page.';	
+        echo Carbon::now();	
     }
 
     public function generateAction($password)
